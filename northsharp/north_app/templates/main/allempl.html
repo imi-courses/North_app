@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% for empl in empl %}
+    <div>
+        <h3>{{empl.name}}</h3>
+        <p>{{empl.position}}</p><br>
+        <p>{{empl.sex}}</p><br>
+        <p>{{empl.experience}}</p><br>
+    </div>
+    {% endfor %}
+{% endblock %}

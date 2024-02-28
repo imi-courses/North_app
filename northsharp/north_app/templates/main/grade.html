@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% for grade in grade %}
+    <div>
+        <h3>{{grade}}</h3>
+    </div>
+    {% endfor %}
+{% endblock %}
