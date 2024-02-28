@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<style>
+		#map { height: 100vh; }
+	</style>
+</head>
+<body style="background: linear-gradient(to bottom, #00ff99, #008000);">
+<div class="mar" style="background: white">
+<nav class="navbar navbar-expand-xl navbar-light pt-1 pl-1 pr-1 pb-0 mx-auto d1" style="background: linear-gradient(to top, #003300, #00ff99);">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span></button>
+    <div class="navbar-collapse collapse" id="main-nav" style="margin: 0 4vh 0 9vh">
+    <ul class="nav navbar-nav">
+        <li class="nav-item mr-4">
+            <a class="nav-link p-0" href="{% url 'main'%}">Главная</a>
+    </li>
+        <li class="nav-item mr-4">
+            <a class="nav-link p-0" href="{% url 'about'%}">О нас</a>
+        </li>
+    </ul>
+</div>
+</nav>
+    <div style="height: 100vh">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>
+<style>
+.d1{
+    height:  9vh;
+    margin: 0 10vh 0 10vh;
+    }
+.mar{
+    margin: 0 15vh 0 15vh;
+}
+</style>
