@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
+{% load user_extras %}
 {% block content %}
 {% for empl in empl %}
-    <div>
+    <div class="tsk">
         <h3>{{empl.name}}</h3>
-        <p>{{empl.position}}</p><br>
-        <p>{{empl.sex}}</p><br>
-        <p>{{empl.experience}}</p><br>
+        <p>{{empl.get_position_display}} - {{empl.get_sex_display}}</p>
+        <p>Стаж работы: {{ empl.experience }} {{ empl.experience|ru_plural:"год,года,лет" }}</p>
     </div>
     {% endfor %}
 {% endblock %}
