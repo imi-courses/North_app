@@ -2,8 +2,10 @@
 {% block content %}
 {% csrf_token %}
     <form method="post">
-        <label for=""></label>
-        inp
-        <label for=""></label>
+        <label for="username">Имя:</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" id="password">
+        <button type="submit">Войти</button>
     </form>
 {% endblock %}
