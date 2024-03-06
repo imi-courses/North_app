@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    {% for grade in grade %}
+        <div class="tsk">
+            <h3>{{ grade.student }} - {{ grade.subject }}</h3>
+            <p>Оценка: {{ grade.get_grade_display }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    {% for subj in subj %}
+        <div class="tsk">
+            <h2>{{subj}}</h2>
+        </div>
+    {% endfor %}
+{% endblock %}
