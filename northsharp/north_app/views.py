@@ -21,3 +21,14 @@ def subj(request):
 def grade(request):
     grade = Grade.objects.all()
     return render(request, "main/grade.html",{'grade': grade})
+
+
+def form(request):
+    if request.user.is_authenticated:
+        context ={
+            'student': Student.objects.all()
+        }
+
+        return render(request, 'main/form.html', context)
+    else:
+        return render(request, 'main/auth.html')

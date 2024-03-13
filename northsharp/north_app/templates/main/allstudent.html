@@ -2,8 +2,8 @@
 {% block content %}
 {% for student in student %}
     <div class="tsk">
-        <h3>{{student.name}}</h3>
-        <p>{{student.class_name}}</p>
+        <h3>{{ student.name}}</h3>
+        <p>Класс: {{student.get_class_name_display}}</p>
     </div>
     {% endfor %}
 {% endblock %}
