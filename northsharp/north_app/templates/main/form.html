@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% block content %}
-{% csrf_token %}
     <form method="post">
+    {% csrf_token %}
         <label for="username">Имя:</label>
         <input type="text" name="username" id="username">
         <label for="password">Пароль:</label>

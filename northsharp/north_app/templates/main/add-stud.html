@@ -1,26 +1,12 @@
 {% extends 'main/base.html' %}
 {% load add-student %}
 {% block content %}
-{% csrf_token %}
     <form action="" method="post">
-      <label for="Name">Введите имя студента:</label>
-      <input type="text" name="Name" id="Name">
-        <p>
-            <select name="class_name" id="class_name" size="4">
-            <option disabled>Выберите класс</option>
-            <option value="Первый">1</option>
-            <option value="Второй">2</option>
-            <option value="Третий">3</option>
-            <option value="Четвертый">4</option>
-            <option value="Пятый">5</option>
-            <option value="Шестой">6</option>
-            <option value="Седьмой">7</option>
-            <option value="Восьмой">8</option>
-            <option value="Девятый">9</option>
-            <option value="Десятый">10</option>
-            <option value="Одиннадцатый">11</option>
-            </select>
-        </p>
+    {% csrf_token %}
+      <label>Введите имя студента:</label>
+      {{ form.name }}<br>
+        <label> Введите класс: </label>
+        {{ form.class_name }}
       <button type="submit">Добавить</button>
     </form>
 {% endblock %}
