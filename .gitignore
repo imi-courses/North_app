@@ -158,3 +158,13 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+northsharp/north_app/formstud.py
+northsharp/north_app/models.py
+northsharp/north_app/templates/main/about-us.html
+northsharp/north_app/templates/main/add-stud.html
+northsharp/north_app/templates/main/allempl.html
+northsharp/north_app/templates/main/allstudent.html
+northsharp/north_app/templates/main/form.html
+northsharp/north_app/templates/main/grade.html
+northsharp/north_app/templates/main/subj.html
+northsharp/north_app/views.py
