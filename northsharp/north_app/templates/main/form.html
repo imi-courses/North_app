@@ -1,5 +1,4 @@
 {% extends 'main/base.html' %}
-<<<<<<< HEAD
 {% block content %}
     <form method="post">
     {% csrf_token %}
@@ -9,15 +8,5 @@
         <input type="password" name="password" id="password">
         <button type="submit">Войти</button>
     </form>
-=======
   {% block content %}
-{% csrf_token %}
-      <form method="Post">
-        <label for="username"> Имя: </label>
-        <input type="text" name="username" id="username">
-        <label for="username"> : </label>
-        <input type="password" name="password" id="password">
-          <button type="submit">Войти</button>
-      </form>
->>>>>>> origin/ArGhost
 {% endblock %}

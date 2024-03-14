@@ -1,17 +1,9 @@
 {% extends 'main/base.html' %}
 {% block content %}
-<<<<<<< HEAD
-    {% for student in student %}
-        <div class="tsk">
-            <h3>{{ student.name }}</h3>
-            <p>Класс: {{ student.get_class_name_display }}</p>
-        </div>
-=======
 {% for student in student %}
     <div class="tsk">
         <h3>{{ student.name}}</h3>
         <p>Класс: {{student.get_class_name_display}}</p>
     </div>
->>>>>>> origin/ArGhost
     {% endfor %}
 {% endblock %}
