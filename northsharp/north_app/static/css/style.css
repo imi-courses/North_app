@@ -1,0 +1,42 @@
+#map {
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(to bottom, #0099cc, #003366);
+}
+
+.navbar {
+    background: linear-gradient(to top, #003366, #0099cc);
+}
+
+.mar {
+    margin: 0;
+}
+
+.d1{
+    height:  9vh;
+    margin: 0 10vh 0 10vh;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.tsk {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.tsk h3 {
+    margin-bottom: 5px;
+}
+
+.tsk p {
+    margin: 0;
+    font-size: 20px;
+}
