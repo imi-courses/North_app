@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,38 +9,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-	<style>
-		#map { height: 100vh; }
-		body {
-            background: linear-gradient(to bottom, #0099cc, #003366);
-        }
-        .navbar {
-            background: linear-gradient(to top, #003366, #0099cc);
-        }
-        .mar {
-            margin: 0;
-        }
-        .nav-link {
-            color: #ffffff !important;
-        }
-        .tsk {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .tsk h3 {
-            margin-bottom: 5px;
-        }
-
-        .tsk p {
-            margin: 0;
-            font-size: 20px;
-        }
-	</style>
+    <link rel="stylesheet" href="{% static "css/style.css " %}" />
 </head>
 <body>
 <div class="mar" style="background: white">
@@ -67,6 +37,9 @@
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'subj'%}">Предметы</a>
                 </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link p-0" href="{% url 'addstud'%}">Добавление</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -76,12 +49,3 @@
 </div>
 </body>
 </html>
-<style>
-.d1{
-    height:  9vh;
-    margin: 0 10vh 0 10vh;
-}
-.mar{
-    margin: 0;
-}
-</style>
