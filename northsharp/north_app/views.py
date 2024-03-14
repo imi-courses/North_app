@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
-from formstud import studAdd
+from .formstud import studAdd
 
 # Create your views here.
 def index(request):
@@ -29,7 +29,6 @@ def form(request):
         context ={
             'student': Student.objects.all()
         }
-
         return render(request, 'main/form.html', context)
     else:
         return render(request, 'main/auth.html')
