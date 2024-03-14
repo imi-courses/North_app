@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
 from .formstud import studAdd
+from .formstud import studAdd, subjAdd
 from django.shortcuts import render
 from .models import Student,Subject,Grade,Table,Employee
 # Create your views here.
