@@ -1,0 +1,18 @@
+body{
+    background: rgb(0 149 255);
+    margin: 0;
+    font-size: 16px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.content{
+
+}
+
+.form-md{
+    background: white;
+    height: 200px;
+    margin-top: 264px;
+    margin-left: 438px;
+    margin-right: 438px;
+}
