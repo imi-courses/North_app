@@ -31,9 +31,9 @@ def form(request):
         context ={
             'student': Student.objects.all()
         }
-        return render(request, 'main/form.html', context)
+        return render(request, 'main/index.html', context)
     else:
-        return render(request, 'main/auth.html')
+        return render(request, 'main/form.html')
 
 def addstud(request):
     if request.method == "POST":
