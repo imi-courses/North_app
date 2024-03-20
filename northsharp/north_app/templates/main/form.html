@@ -1,11 +1,12 @@
 {% extends 'main/base.html' %}
-  {% block content %}
-{% csrf_token %}
-      <form method="Post">
-        <label for="username"> Имя: </label>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <label for="username">Имя:</label>
         <input type="text" name="username" id="username">
-        <label for="username"> : </label>
+        <label for="password">Пароль:</label>
         <input type="password" name="password" id="password">
-          <button type="submit">Войти</button>
-      </form>
+        <button type="submit">Войти</button>
+    </form>
+  {% block content %}
 {% endblock %}
