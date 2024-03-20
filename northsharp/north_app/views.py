@@ -31,7 +31,7 @@ def form(request):
         context ={
             'student': Student.objects.all()
         }
-        return render(request, 'main/index.html', context)
+        return render(request, 'main/form.html', context)
     else:
         return render(request, 'main/form.html')
 
