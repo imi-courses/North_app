@@ -6,4 +6,5 @@
             <p>Оценка: {{ grade.get_grade_display }}</p>
     </div>
     {% endfor %}
+<a class="btn btn-primary" href="{% url 'addgrade'%}">Добавить</a>
 {% endblock %}
