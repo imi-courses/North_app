@@ -1,18 +1,53 @@
 body{
     background: rgb(0 149 255);
     margin: 0;
-    font-size: 16px;
-    font-family:'Courier New', Courier, monospace;
+    font-size: 21px;
+    font-family: Barlow;
+    color: #fff;
 }
 
 .content{
-
+    margin-top: 259px;
+    margin-left: 80vh;
 }
 
 .form-md{
-    background: white;
-    height: 200px;
-    margin-top: 264px;
-    margin-left: 438px;
-    margin-right: 438px;
+    height: auto;
+    width: 404px;
+}
+
+
+.form-md h1{
+    text-align: center;
+    font-size: 60px;
+}
+
+.form-md label{
+    margin-top: 20px;
+}
+
+.form-md .field{
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 184, 255);
+    width: 404px;
+    height: 36px;
+}
+
+.form-md .check{
+    float: left;
+    margin-top: 20px;
+    border: 1px solid rgb(0, 184, 255);
+    height: 36px;
+    width: 36px;
+}
+
+.form-md .btn{
+    float: right;
+    margin-top: 20px;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 184, 255);
+    width: 146px;
+    height: 36px;
+    background: #fff;
 }
