@@ -12,6 +12,8 @@ urlpatterns = [
     path('/form', views.form, name='form'),
     path('/addstud', views.addstud, name='addstud'),	
     path('/addsubj', views.addsubj, name='addsubj'),
-    path('/form', views.form, name='form')
+    path('/form', views.form, name='form'),
+    path('/addgrade', views.addGrade, name='addgrade'),
+    path('/addempl', views.addEmpl, name='addempl')
 ]
 
