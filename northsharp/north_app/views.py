@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
-from .formstud import studAdd
-from .formstud import studAdd, subjAdd
+from .formstud import studAdd, subjAdd, gradeAdd, emplAdd
 from django.shortcuts import render
 from .models import Student,Subject,Grade,Table,Employee
 # Create your views here.
@@ -33,7 +32,7 @@ def form(request):
         }
         return render(request, 'main/form.html', context)
     else:
-        return render(request, 'main/auth.html')
+        return render(request, 'main/form.html')
 
 def addstud(request):
     if request.method == "POST":
@@ -45,7 +44,32 @@ def addstud(request):
     context = {
         'form': form
     }
-    if request.studAdd.is_authenticated:
-        return render(request, 'main/add-stud.html', context)
-    else:
-        return render(request, 'main/index.html')
+    return render(request, 'main/add-stud.html', context)
+def addsubj(request):
+    if request.method == "POST":
+        form = subjAdd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('subj')
+    form = subjAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/addsubj.html', context)
+def addGrade(request):
+    form = gradeAdd()
+    if request.method == 'POST':
+        form = gradeAdd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('grade')
+    return render(request, 'main/addgrade.html', {'form': form})
+
+def addEmpl(request):
+    form = emplAdd()
+    if request.method == 'POST':
+        form = emplAdd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('allempl')
+    return render(request, 'main/addempl.html', {'form': form})

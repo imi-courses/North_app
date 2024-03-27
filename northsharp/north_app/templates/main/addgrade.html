@@ -2,10 +2,10 @@
 {% block content %}
     <form action="" method="post">
     {% csrf_token %}
-      <label>Введите имя студента:</label>
+      <label>Введите предмет:</label>
       {{ form.name }}<br>
-        <label> Введите класс: </label>
-        {{ form.class_name }}
+      <label>Добавить оценку:</label>
+      {{ form.as_p }}<br>
       <button type="submit">Добавить</button>
     </form>
 {% endblock %}
