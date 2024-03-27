@@ -1,9 +1,12 @@
 {% extends 'main/base.html' %}
 {% block content %}
 {% for student in student %}
+
     <div class="tsk">
         <h3>{{ student.name}}</h3>
         <p>Класс: {{student.get_class_name_display}}</p>
     </div>
+
     {% endfor %}
+<a class="btn btn-primary" href="{% url 'addstud'%}">Добавить</a>
 {% endblock %}

@@ -45,7 +45,16 @@ def addstud(request):
     context = {
         'form': form
     }
-    if request.studAdd.is_authenticated:
-        return render(request, 'main/add-stud.html', context)
-    else:
-        return render(request, 'main/index.html')
+    return render(request, 'main/add-stud.html', context)
+
+def addsubj(request):
+    if request.method == "POST":
+        form = studAdd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('subj')
+    form = studAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/addsubj.html', context)
