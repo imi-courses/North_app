@@ -1,5 +1,5 @@
 from .models import Student, Subject, Grade, Employee
-from django.forms import ModelForm, TextInput, NumberInput
+from django.forms import ModelForm, TextInput, NumberInput, Select
 
 
 class studAdd(ModelForm):
@@ -27,14 +27,14 @@ class gradeAdd(ModelForm):
         model = Grade
         fields = ["student", "subject", "grade"]
         widgets = {
-            "student": TextInput(attrs={
+            "student": Select(attrs={
                 'class': 'forms',
                 'id': 'name'
             }),
-            "subject": NumberInput(attrs={
-                'class': 'forms',
+            "subject": Select(attrs={
+                'class': 'dropdown',
             }),
-            "grade": NumberInput(attrs={
+            "grade": Select(attrs={
                 'class': 'forms',
                 'id': 'class'
             }),
