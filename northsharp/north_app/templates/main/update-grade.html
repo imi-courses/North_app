@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <form action="" method="get">
+    {% csrf_token %}
+      <label>Выберите оценку для ученика</label>
+      <button type="submit">Редактировать</button>
+    </form>
+{% endblock %}
