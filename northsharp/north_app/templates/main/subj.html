@@ -3,6 +3,7 @@
     {% for subj in subj %}
         <div class="tsk">
             <h2>{{subj}}</h2>
+            <a class="btn btn-primary" href="{% url'editsubj' pk=subj.pk %}"> Изменить</a>
         </div>
     {% endfor %}
 {% endblock %}

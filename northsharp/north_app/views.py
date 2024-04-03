@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Student,Subject,Grade,Table,Employee
-from .formstud import studAdd
-from .formstud import studAdd, subjAdd
-from django.shortcuts import render
+from .formstud import studAdd, subjAdd, subjEdit
 from .models import Student,Subject,Grade,Table,Employee
 # Create your views here.
 def index(request):
@@ -57,3 +54,14 @@ def addsubj(request):
         'form': form
     }
     return render(request, 'main/addsubj.html', context)
+
+def editsubj(request,pk):
+    EditSubj = Subject.objects.get(pk=pk)
+    if request.method == "POST":
+        form = subjEdit(request.POST, instance = EditSubj)
+        if form.is_valid():
+            form.save()
+            return redirect('subj')
+    else:
+        form = subjEdit(instance = EditSubj)
+        return render(request, 'main/editsubj.html', {'form': form})
