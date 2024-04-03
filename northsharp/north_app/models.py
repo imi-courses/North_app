@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
 
 
@@ -24,7 +24,8 @@ class Student(models.Model):
         return self.name
 
 class Subject(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True, validators=[
+        RegexValidator(regex='^[А-Я][а-я]*$', message='Имя предмета должно начинаться с заглавной буквы')])
 
     def __str__(self):
         return self.name
