@@ -10,4 +10,5 @@
         <p>Стаж работы: {{ empl.experience }} {{ empl.experience|ru_plural:"год,года,лет" }}</p>
     </div>
     {% endfor %}
+<a class="btn btn-primary" href="{% url 'addempl'%}">Добавить</a>
 {% endblock %}

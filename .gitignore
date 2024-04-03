@@ -168,3 +168,5 @@ northsharp/north_app/templates/main/form.html
 northsharp/north_app/templates/main/grade.html
 northsharp/north_app/templates/main/subj.html
 northsharp/north_app/views.py
+northsharp/.idea/misc.xml
+northsharp/.idea/northsharp.iml
