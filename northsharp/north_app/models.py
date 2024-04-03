@@ -45,7 +45,8 @@ class Employee(models.Model):
         (male, 'Муж'),
         (female, 'Жен'),
     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, validators=[
+        RegexValidator(regex='^[А-Я][а-я]* [А-Я][а-я]* [А-Я][а-я]*$')])
     position = models.IntegerField(default=0, choices=Position)
     sex = models.IntegerField(default=0, choices=Sex)
     experience = models.PositiveIntegerField()
