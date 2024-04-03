@@ -32,7 +32,7 @@ class gradeAdd(ModelForm):
                 'id': 'name'
             }),
             "subject": Select(attrs={
-                'class': 'forms',
+                'class': 'dropdown',
             }),
             "grade": Select(attrs={
                 'class': 'forms',
