@@ -55,13 +55,15 @@ def addsubj(request):
     }
     return render(request, 'main/addsubj.html', context)
 
-def editsubj(request,pk):
-    EditSubj = Subject.objects.get(pk=pk)
+#
+def editsubj(request):
     if request.method == "POST":
-        form = subjEdit(request.POST, instance = EditSubj)
+        form = subjEdit(request.POST)
         if form.is_valid():
             form.save()
             return redirect('subj')
-    else:
-        form = subjEdit(instance = EditSubj)
-        return render(request, 'main/editsubj.html', {'form': form})
+    form = subjEdit
+    context = {
+        'form': form
+    }
+    return render(request, 'main/editsubj.html', context)

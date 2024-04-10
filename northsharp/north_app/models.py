@@ -28,6 +28,9 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return f'/editsubj/{self.id}'
+
 class Employee(models.Model):
     teacher = 0
     vice_director = 1
