@@ -55,8 +55,8 @@ def addsubj(request):
     }
     return render(request, 'main/addsubj.html', context)
 
-#
-def editsubj(request):
+
+def editsubj(request, pk):
     if request.method == "POST":
         form = subjEdit(request.POST)
         if form.is_valid():

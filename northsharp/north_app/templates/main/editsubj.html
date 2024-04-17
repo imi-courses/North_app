@@ -1,9 +1,9 @@
 {% extends 'main/base.html' %}
 {% block content %}
-    <form method="POST">
+    <form method="GET" action="{% url 'subj' subj.id %}">
     {% csrf_token %}
         <label>Редактировать название предмета:</label>
-        {form.name}
+        {{ form.name }}<br>
         <button type="submit">Редактировать</button>
     </form>
 {% endblock %}
