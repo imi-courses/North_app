@@ -17,7 +17,9 @@ class Student(models.Model):
         (11, 'Одиннадцатый')
     )
     name = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
     class_name = models.IntegerField(choices=Class)
+
 
     def __str__(self):
         return self.name

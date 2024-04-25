@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 {% block content %}
-    <form method="GET" action="{% url 'subj' subj.id %}">
+    <form method="POST">
     {% csrf_token %}
         <label>Редактировать название предмета:</label>
         {{ form.name }}<br>

@@ -4,6 +4,7 @@
         <div class="tsk">
             <h2>{{subj}}</h2>
             <a class="btn btn-primary" href="{% url 'editsubj' subj.id %}">Изменить</a>
+            <a class="btn btn-primary" href="{% url 'deletesubj' subj.id %}">Удалить</a>
         </div>
     {% endfor %}
 {% endblock %}
