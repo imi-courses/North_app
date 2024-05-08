@@ -75,7 +75,7 @@ class Grade(models.Model):
     grade = models.PositiveIntegerField(choices=Mark)
 
     def __str__(self):
-        return f'{self.student} - {self.subject} - {self.grade}'
+        return f'{self.student.class_name} - {self.subject} - {self.grade}'
 
 class Table(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)

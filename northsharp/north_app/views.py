@@ -2,6 +2,15 @@ from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
 from .formstud import studAdd, subjAdd, gradeAdd, emplAdd,subjEdit, subjDelete
 # Create your views here.
+
+
+def search(request, models):
+    if request.POST.get('name'):
+        return models.objects.filter(name__icontains = request.POST['name'])
+    else:
+        return models.objects.all()
+
+
 def index(request):
     return render(request, "main/index.html")
 
@@ -10,16 +19,18 @@ def about(request):
 
 
 def stud(request):
-    Students = Student.objects.all()
+    Students = search(request, Student)
     return render(request, "main/allstudent.html",{'student': Students})
 def empl(request):
-    empl = Employee.objects.all()
+    empl = search(request, Employee)
     return render(request, "main/allempl.html",{'empl': empl})
 def subj(request):
     subj = Subject.objects.all()
     return render(request, "main/subj.html",{'subj': subj})
 def grade(request):
     grade = Grade.objects.all()
+    grade.union(Student.objects.all())
+    print(grade)
     return render(request, "main/grade.html",{'grade': grade})
 
 

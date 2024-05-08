@@ -24,8 +24,7 @@ body {
 }
 
 /* Стили для таблицы задания */
-.tsk {
-    max-width: 220vh; /* Ширина таблицы не превышает половины ширины сайта */
+.tsk {/* Ширина таблицы не превышает половины ширины сайта */
     border-collapse: collapse; /* Объединение границ ячеек */
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -37,6 +36,7 @@ body {
 }
 
 .tsk th, .tsk td {
+    margin: 15px 15px 15px 15px
     border: 1px solid #ddd; /* Граница для ячеек */
     padding: 8px; /* Отступ внутри ячейки */
 }

@@ -1,5 +1,10 @@
 {% extends 'main/base.html' %}
 {% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <input name="name" type="text" placeholder="Введите имя:">
+    <button type="submit">Поиск</button>
+</form>
 {% for student in student %}
 
     <div class="tsk">
