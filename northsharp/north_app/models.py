@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
+from django.forms import DateInput
 
 
 class Student(models.Model):
@@ -16,16 +17,18 @@ class Student(models.Model):
         (10, 'Десятый'),
         (11, 'Одиннадцатый')
     )
-    name = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    class_name = models.IntegerField(choices=Class)
+
+    name = models.CharField(max_length=100, validators=[
+        RegexValidator(regex='^[А-Я][а-я]* [А-Я][а-я]* [А-Я][а-я]*$')])
+    class_name = models.IntegerField(choices=Class, validators=[MinValueValidator(1), MaxValueValidator(11)])
 
 
     def __str__(self):
         return self.name
 
 class Subject(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True, validators=[
+        RegexValidator(regex='^[А-Я][а-я]*$', message='Имя предмета должно начинаться с заглавной буквы')])
 
     def __str__(self):
         return self.name
@@ -46,12 +49,15 @@ class Employee(models.Model):
         (male, 'Муж'),
         (female, 'Жен'),
     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, validators=[
+        RegexValidator(regex='^[А-Я][а-я]* [А-Я][а-я]* [А-Я][а-я]*$')])
     position = models.IntegerField(default=0, choices=Position)
     sex = models.IntegerField(default=0, choices=Sex)
     experience = models.PositiveIntegerField()
     birth_day = models.DateField()
-    Class_teacher = models.CharField(max_length=100)
+    Class_teacher = models.CharField(max_length=100, validators=[
+        RegexValidator(r'^\d{3}(?:[А-Я])?$',
+                       message='Только трехзначное число или трехзначное число с заглавной буквой в конце')])
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
 
     def __str__(self):

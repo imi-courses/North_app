@@ -13,6 +13,9 @@ urlpatterns = [
     path('/addstud', views.addstud, name='addstud'),	
     path('/addsubj', views.addsubj, name='addsubj'),
     path('<int:pk>/editsubj', views.editsubj, name='editsubj'),
-    path('<int:pk>/deletesubj', views.deletesubj, name='deletesubj')
+    path('<int:pk>/deletesubj', views.deletesubj, name='deletesubj'),
+    path('/form', views.form, name='form'),
+    path('/addgrade', views.addGrade, name='addgrade'),
+    path('/addempl', views.addEmpl, name='addempl')
 ]
 
