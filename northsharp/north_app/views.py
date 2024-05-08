@@ -55,6 +55,7 @@ def addsubj(request):
     }
     return render(request, 'main/addsubj.html', context)
 
+# /Редактирование и удаление
 def editsubj(request, pk):
     if request.method == "POST":
         form = Subject.objects.get(pk = pk)
@@ -76,6 +77,11 @@ def deletesubj(request, pk):
         'form': form
     }
     return render(request, 'main/deletesubj.html', context)
+
+
+# /
+
+
 def addGrade(request):
     form = gradeAdd()
     if request.method == 'POST':
