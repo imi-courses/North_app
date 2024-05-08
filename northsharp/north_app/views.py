@@ -71,3 +71,11 @@ def addEmpl(request):
             form.save()
             return redirect('allempl')
     return render(request, 'main/addempl.html', {'form': form})
+def addEmpl(request):
+    form = emplAdd()
+    if request.method == 'POST':
+        form = emplAdd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('allempl')
+    return render(request, 'main/addempl.html', {'form': form})
