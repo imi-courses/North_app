@@ -12,8 +12,16 @@ urlpatterns = [
     path('/form', views.form, name='form'),
     path('/addstud', views.addstud, name='addstud'),	
     path('/addsubj', views.addsubj, name='addsubj'),
+
     path('<int:pk>/editsubj', views.editsubj, name='editsubj'),
     path('<int:pk>/deletesubj', views.deletesubj, name='deletesubj'),
+
+    path('<int:pk>/editstud', views.editstud, name='editstud'),
+    path('<int:pk>/deletestud', views.deletestud, name='deletestud'),
+
+    path('<int:pk>/editEmpl', views.editEmpl, name='editEmpl'),
+    path('<int:pk>/deleteEmpl', views.deleteEmpl, name='deleteEmpl'),
+
     path('/form', views.form, name='form'),
     path('/addgrade', views.addGrade, name='addgrade'),
     path('/addempl', views.addEmpl, name='addempl')
