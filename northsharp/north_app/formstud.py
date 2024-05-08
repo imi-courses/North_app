@@ -1,5 +1,5 @@
 from .models import Student, Subject, Grade, Employee
-from django.forms import ModelForm, TextInput, NumberInput, Select
+from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput
 
 
 class studAdd(ModelForm):
@@ -22,6 +22,9 @@ class emplAdd(ModelForm):
     class Meta:
         model = Employee
         fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject"]
+        widgets = {
+            'birth_day': DateInput()
+        }
 class gradeAdd(ModelForm):
     class Meta:
         model = Grade
