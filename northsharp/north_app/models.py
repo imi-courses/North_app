@@ -17,9 +17,11 @@ class Student(models.Model):
         (10, 'Десятый'),
         (11, 'Одиннадцатый')
     )
+
     name = models.CharField(max_length=100, validators=[
         RegexValidator(regex='^[А-Я][а-я]* [А-Я][а-я]* [А-Я][а-я]*$')])
     class_name = models.IntegerField(choices=Class, validators=[MinValueValidator(1), MaxValueValidator(11)])
+
 
     def __str__(self):
         return self.name
@@ -30,6 +32,7 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Employee(models.Model):
     teacher = 0
