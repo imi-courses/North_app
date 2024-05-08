@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
-from .formstud import studAdd, subjAdd, gradeAdd, emplAdd
+from .formstud import studAdd, subjAdd, gradeAdd, emplAdd,subjEdit, subjDelete
 # Create your views here.
 def index(request):
     return render(request, "main/index.html")
@@ -28,7 +28,7 @@ def form(request):
         context ={
             'student': Student.objects.all()
         }
-        return render(request, 'main/form.html', context)
+        return render(request, 'main/index.html', context)
     else:
         return render(request, 'main/form.html')
 
@@ -54,6 +54,34 @@ def addsubj(request):
         'form': form
     }
     return render(request, 'main/addsubj.html', context)
+
+# /Редактирование и удаление
+def editsubj(request, pk):
+    if request.method == "POST":
+        form = Subject.objects.get(pk = pk)
+        form.name = request.POST['name']
+        form.save()
+        return redirect('subj')
+    form = subjEdit
+    context = {
+        'form': form
+    }
+    return render(request, 'main/editsubj.html', context)
+
+def deletesubj(request, pk):
+    if request.method == "POST":
+        Subject.objects.filter(pk = pk).delete()
+        return redirect('subj')
+    form = subjDelete
+    context = {
+        'form': form
+    }
+    return render(request, 'main/deletesubj.html', context)
+
+
+# /
+
+
 def addGrade(request):
     form = gradeAdd()
     if request.method == 'POST':
@@ -63,14 +91,6 @@ def addGrade(request):
             return redirect('grade')
     return render(request, 'main/addgrade.html', {'form': form})
 
-def addEmpl(request):
-    form = emplAdd()
-    if request.method == 'POST':
-        form = emplAdd(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('allempl')
-    return render(request, 'main/addempl.html', {'form': form})
 def addEmpl(request):
     form = emplAdd()
     if request.method == 'POST':
