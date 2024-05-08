@@ -53,3 +53,25 @@ class subjAdd(ModelForm):
                 'id': 'name'
             })
         }
+
+class subjEdit(ModelForm):
+    class Meta:
+        model = Subject
+        fields = ["name"]
+        widgets = {
+            "name": TextInput(attrs={
+                'class': 'forms',
+                'id': 'name'
+            })
+        }
+
+class subjDelete(ModelForm):
+    class Meta:
+        model = Subject
+        fields = ["name"]
+        widgets = {
+            "name": TextInput(attrs={
+                'class': 'forms',
+                'id': 'name'
+            })
+        }
