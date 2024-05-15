@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <h1>Редактирования учителя</h1>
+        <label>Введите ФИО:</label>
+        {{ form.name }}<br>
+        <label>Введите кто вы:</label>
+        {{ form.position }}<br>
+        <label>Введите пол:</label>
+        {{ form.sex }}<br>
+        <label>Введите стаж работы:</label>
+        {{ form.experience }}<br>
+        <label>Введите день рождения:</label>
+        {{ form.birth_day }}<br>
+        <label>Введите класс учителя:</label>
+        {{ form.Class_teacher }}<br>
+        <label>Введите предмет:</label>
+        {{ form.subject }}<br>
+        <button type="submit">Редактировать</button>
+    </form>
+{% endblock %}
