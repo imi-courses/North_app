@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.forms import DateInput
-
+from django.contrib.auth.models import BaseUserManager
 
 class Student(models.Model):
     Class = (
@@ -21,10 +21,12 @@ class Student(models.Model):
     name = models.CharField(max_length=100, validators=[
         RegexValidator(regex='^[А-Я][а-я]* [А-Я][а-я]* [А-Я][а-я]*$')])
     class_name = models.IntegerField(choices=Class, validators=[MinValueValidator(1), MaxValueValidator(11)])
+    login = models.CharField(max_length=15, null=False)
+    password = models.CharField(max_length=128, null=False)
 
 
     def __str__(self):
-        return self.name
+        return self.name+' '+ self.login
 
 class Subject(models.Model):
     name = models.CharField(max_length=100, unique=True, validators=[

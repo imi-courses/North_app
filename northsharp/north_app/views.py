@@ -3,6 +3,17 @@ from .models import Student,Subject,Grade,Table,Employee
 from .formstud import studAdd, subjAdd, gradeAdd, emplAdd,subjEdit, subjDelete
 # Create your views here.
 
+def prov(types):
+    type = types
+    return type
+
+def auth_stud(req , model):
+    if req.POST.get('username'):
+        ar = model.objects.get(login__icontains=req.POST['username'])
+        return ar.password == req.POST['password']
+
+
+
 
 def search(request, models):
     if request.POST.get('name'):
@@ -35,25 +46,26 @@ def grade(request):
 
 
 def form(request):
-    if request.user.is_authenticated:
-        context ={
-            'student': Student.objects.all()
-        }
-        return render(request, 'main/index.html', context)
+    if auth_stud(request, Student):
+        proverka()
+        return render(request, 'main/about-us.html')
     else:
         return render(request, 'main/form.html')
 
 def addstud(request):
-    if request.method == "POST":
-        form = studAdd(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('allstud')
-    form = studAdd
-    context = {
-        'form': form
-    }
-    return render(request, 'main/add-stud.html', context)
+    if(type==1):
+        return redirect('grade')
+    else:
+        if request.method == "POST":
+            form = studAdd(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('allstud')
+        form = studAdd
+        context = {
+            'form': form
+        }
+        return render(request, 'main/add-stud.html', context)
 
 # /Редактирование и удаление
 def editstud(request, pk):

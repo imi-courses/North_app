@@ -5,7 +5,7 @@ from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput
 class studAdd(ModelForm):
     class Meta:
         model = Student
-        fields = ["name", "class_name"]
+        fields = ["name", "class_name","login", "password"]
         widgets = {
             "name": TextInput(attrs={
                 'class': 'forms',
@@ -14,6 +14,14 @@ class studAdd(ModelForm):
             "class_name": Select(attrs={
                 'class': 'forms',
                 'id': 'class'
+            }),
+            "login": TextInput(attrs={
+                'class': 'forms',
+                'id': 'log'
+            }),
+            "password": TextInput(attrs={
+                'class': 'forms',
+                'id': 'pswd'
             }),
         }
 
