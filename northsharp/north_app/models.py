@@ -28,7 +28,7 @@ class Student(models.Model):
 
 class Subject(models.Model):
     name = models.CharField(max_length=100, unique=True, validators=[
-        RegexValidator(regex='^[А-Я][а-я]*$', message='Имя предмета должно начинаться с заглавной буквы')])
+        RegexValidator(regex='^[А-Я][а-я\s\-]*$', message='Имя предмета должно начинаться с заглавной буквы')])
 
     def __str__(self):
         return self.name
