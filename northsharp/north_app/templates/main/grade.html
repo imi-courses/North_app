@@ -1,10 +1,21 @@
 {% extends 'main/base.html' %}
 {% block content %}
+<table class="tsk">
+        <tr>
+        <th>Имя</th>
+        <th>Предмет</th>
+        <th>Класс</th>
+        <th>Оценка</th>
+    </tr>
 {% for grade in grade %}
-    <div class="tsk">
-        <h3>{{ grade.student }} - {{ grade.subject }}</h3>
-            <p>Оценка: {{ grade.get_grade_display }}</p>
-    </div>
+<tr>
+        <td>{{ grade.student }}</td>
+        <td>{{ grade.subject }}</td>
+        <td>{{ grade.student.class_name }}</td>
+        <td>{{ grade.grade }}</td>
+    </tr>
     {% endfor %}
+</table>
+
 <a class="btn btn-primary" href="{% url 'addgrade'%}">Добавить</a>
 {% endblock %}

@@ -2,8 +2,6 @@
 {% block content %}
     <form action="" method="post">
     {% csrf_token %}
-      <label>Введите предмет:</label>
-      {{ form.name }}<br>
       <label>Добавить оценку:</label>
       {{ form.as_p }}<br>
       <button type="submit">Добавить</button>

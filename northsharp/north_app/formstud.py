@@ -11,7 +11,7 @@ class studAdd(ModelForm):
                 'class': 'forms',
                 'id': 'name'
             }),
-            "class_name": NumberInput(attrs={
+            "class_name": Select(attrs={
                 'class': 'forms',
                 'id': 'class'
             }),

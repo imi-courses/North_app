@@ -1,42 +1,61 @@
-#map {
-    height: 100vh;
-}
-
+/* Общие стили */
 body {
     background: linear-gradient(to bottom, #0099cc, #003366);
-}
-
-.navbar {
-    background: linear-gradient(to top, #003366, #0099cc);
+    margin: 0;
+    padding: 0;
 }
 
 .mar {
     margin: 0;
 }
 
-.d1{
-    height:  9vh;
-    margin: 0 10vh 0 10vh;
+/* Навигационное меню */
+.navbar {
+    background: linear-gradient(to top, #003366, #0099cc);
 }
 
-.nav-link {
+.navbar-nav .nav-link {
     color: #ffffff !important;
 }
 
-.tsk {
+/* Контент */
+.content {
+    margin-top: 20px; /* Добавьте этот класс к вашему блоку контента, чтобы установить верхний отступ */
+}
+
+/* Стили для таблицы задания */
+.tsk {/* Ширина таблицы не превышает половины ширины сайта */
+    width: 100%;
+    border-collapse: collapse; /* Объединение границ ячеек */
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif; /* Шрифт Times New Roman */
 }
 
-.tsk h3 {
-    margin-bottom: 5px;
+.tsk th, .tsk td {
+    margin: 15px 15px 15px 15px
+    border: 1px solid #ddd; /* Граница для ячеек */
+    padding: 8px; /* Отступ внутри ячейки */
 }
 
-.tsk p {
-    margin: 0;
-    font-size: 20px;
+.tsk th {
+    font-size: 28px; /* Увеличим размер заголовка */
+    color: #333; /* Цвет текста заголовка */
+    background-color: #f0f0f0; /* Цвет фона заголовка */
+    border-bottom: 2px solid #ddd; /* Добавим нижнюю границу для заголовка */
 }
+
+.tsk td {
+    font-size: 24px; /* Увеличим размер текста */
+    color: #555; /* Изменяем цвет текста */
+}
+
+.tsk td:first-child {
+    font-weight: bold; /* Жирный текст для первой ячейки в каждой строке */
+}
+
+
