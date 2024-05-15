@@ -4,5 +4,6 @@
     {% csrf_token %}
         <label>Хотите удалить {{empl.name}}?</label>
         <button type="submit">Удалить</button>
+        <a href="{% url 'allempl' %}" class="btn btn-primary">Отмена</a>
     </form>
 {% endblock %}
