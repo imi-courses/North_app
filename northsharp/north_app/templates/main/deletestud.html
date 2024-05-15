@@ -1,8 +1,9 @@
 {% extends 'main/base.html' %}
 {% block content %}
-    <form method="POST">
+    <form method="POST" class="ml-4 mt-4">
     {% csrf_token %}
         <label>Хотите удалить {{stud.name}}?</label>
         <button type="submit">Удалить</button>
+        <a href="{% url 'allstud' %}" class="btn btn-primary">Отмена</a>
     </form>
 {% endblock %}
