@@ -13,6 +13,8 @@
         <th>Пол</th>
         <th>Дата рождения</th>
         <th>Стаж работы</th>
+        <th>Класс</th>
+        <th></th>
     </tr>
 {% for empl in empl %}
     <tr>
@@ -21,10 +23,9 @@
         <td>{{ empl.get_sex_display }}</td>
         <td>{{ empl.birth_day }}</td>
         <td>{{ empl.experience }} {{ empl.experience|ru_plural:"год,года,лет" }}</td>
-    </tr><br>
-    
-    <a class="btn btn-primary" href="{% url 'editEmpl' empl.id %}">Изменить</a>
-    <a class="btn btn-primary" href="{% url 'deleteEmpl' empl.id %}">Удалить</a>
+        <td><a class="btn btn-primary" href="{% url 'editEmpl' empl.id %}">Изменить</a>
+    <a class="btn btn-primary" href="{% url 'deleteEmpl' empl.id %}">Удалить</a></td>
+    </tr>
     {% endfor %}
 </table>
 

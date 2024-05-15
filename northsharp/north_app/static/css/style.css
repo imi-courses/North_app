@@ -25,6 +25,7 @@ body {
 
 /* Стили для таблицы задания */
 .tsk {/* Ширина таблицы не превышает половины ширины сайта */
+    width: 100%;
     border-collapse: collapse; /* Объединение границ ячеек */
     border: 1px solid #ddd;
     border-radius: 5px;
