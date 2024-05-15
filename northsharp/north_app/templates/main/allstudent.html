@@ -10,6 +10,8 @@
     <div class="tsk">
         <h3>{{ student.name}}</h3>
         <p>Класс: {{student.get_class_name_display}}</p>
+        <a class="btn btn-primary" href="{% url 'editstud' student.id %}">Изменить</a>
+        <a class="btn btn-primary" href="{% url 'deletestud' student.id %}">Удалить</a>
     </div>
 
     {% endfor %}

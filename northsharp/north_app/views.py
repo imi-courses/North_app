@@ -54,6 +54,34 @@ def addstud(request):
         'form': form
     }
     return render(request, 'main/add-stud.html', context)
+
+# /Редактирование и удаление
+def editstud(request, pk):
+    if request.method == "POST":
+        form = Student.objects.get(pk = pk)
+        form.name = request.POST['name']
+        form.class_name = request.POST['class_name']
+        form.save()
+        return redirect('allstud')
+    form = studAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/editstud.html', context)
+
+def deletestud(request, pk):
+    if request.method == "POST":
+        Student.objects.filter(pk = pk).delete()
+        return redirect('allstud')
+    form = studAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/deletestud.html', context)
+# /
+
+
+
 def addsubj(request):
     if request.method == "POST":
         form = subjAdd(request.POST)
@@ -88,8 +116,6 @@ def deletesubj(request, pk):
         'form': form
     }
     return render(request, 'main/deletesubj.html', context)
-
-
 # /
 
 
@@ -110,3 +136,34 @@ def addEmpl(request):
             form.save()
             return redirect('allempl')
     return render(request, 'main/addempl.html', {'form': form})
+# /Редактирование и удаление
+def editEmpl(request, pk):
+    if request.method == "POST":
+
+        form = emplAdd.objects.get(pk = pk)
+        form.name = request.POST['name']
+        form.position = request.POST['position']
+        form.sex = request.POST['sex']
+        form.experience = request.POST['experience']
+        form.birth_day = request.POST['birth_day']
+        form.Class_teacher = request.POST['Class_teacher']
+        form.subject = request.POST['subject']
+
+        form.save()
+        return redirect('allempl')
+    form = emplAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/editEmpl.html', context)
+
+def deleteEmpl(request, pk):
+    if request.method == "POST":
+        Employee.objects.filter(pk = pk).delete()
+        return redirect('allempl')
+    form = emplAdd
+    context = {
+        'form': form
+    }
+    return render(request, 'main/deleteEmpl.html', context)
+# /

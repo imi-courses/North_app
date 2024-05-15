@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <label>Хотите удалить {{stud.name}}?</label>
+        <button type="submit">Удалить</button>
+    </form>
+{% endblock %}
