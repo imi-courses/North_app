@@ -24,6 +24,8 @@ urlpatterns = [
 
     path('/form', views.form, name='form'),
     path('/addgrade', views.addGrade, name='addgrade'),
+    path('/logout', views.user_logout, name='logout'),
     path('/addempl', views.addEmpl, name='addempl')
+
 ]
 

@@ -17,5 +17,7 @@
     {% endfor %}
 </table>
 
-<a class="btn btn-primary" href="{% url 'addgrade'%}">Добавить</a>
+{% if user_role != 'student' %}
+    <a class="btn btn-primary" href="{% url 'addgrade'%}">Добавить</a>
+{% endif %}
 {% endblock %}

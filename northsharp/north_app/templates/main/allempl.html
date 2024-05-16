@@ -24,11 +24,14 @@
         <td>{{ empl.birth_day }}</td>
         <td>{{ empl.experience }} {{ empl.experience|ru_plural:"год,года,лет" }}</td>
         <td>{{ empl.Class_teacher }}</td>
-        <td><a class="btn btn-primary" href="{% url 'editEmpl' empl.id %}">Изменить</a>
-    <a class="btn btn-primary" href="{% url 'deleteEmpl' empl.id %}">Удалить</a></td>
+        <td>{% if user_role != 'student' %}
+            <a class="btn btn-primary" href="{% url 'editEmpl' empl.id %}">Изменить</a>
+    <a class="btn btn-primary" href="{% url 'deleteEmpl' empl.id %}">Удалить</a>
+        {% endif %}</td>
     </tr>
     {% endfor %}
 </table>
-
+{% if user_role != 'student' %}
 <a class="btn btn-primary" href="{% url 'addempl'%}">Добавить</a>
+{% endif %}
 {% endblock %}

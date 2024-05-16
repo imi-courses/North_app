@@ -1,13 +1,14 @@
 from .models import Student, Subject, Grade, Employee
-from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput
+from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput, Form
 
 
 class studAdd(ModelForm):
     class Meta:
         model = Student
-        fields = ["name", "class_name","login", "password"]
+        fields = ["name", "class_name","username", "password"]
         widgets = {
             "name": TextInput(attrs={
+                'name': 'username',
                 'class': 'forms',
                 'id': 'name'
             }),
@@ -15,22 +16,31 @@ class studAdd(ModelForm):
                 'class': 'forms',
                 'id': 'class'
             }),
-            "login": TextInput(attrs={
+            "username": TextInput(attrs={
                 'class': 'forms',
                 'id': 'log'
             }),
             "password": TextInput(attrs={
+                'name': 'password',
                 'class': 'forms',
                 'id': 'pswd'
             }),
         }
 
-
 class emplAdd(ModelForm):
     class Meta:
         model = Employee
-        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject"]
+        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject", "role", "password"]
         widgets = {
+
+            "name": TextInput(attrs={
+                'class': 'username',
+                'id': 'name'
+            }),
+            "position": Select(attrs={
+                'class': 'password',
+                'id': 'class'
+            }),
             'birth_day': DateInput()
         }
 class gradeAdd(ModelForm):

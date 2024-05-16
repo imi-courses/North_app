@@ -25,18 +25,33 @@
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'about'%}">О нас</a>
                 </li>
+
+                {% if user.is_authenticated %}
+                {% if user_role != 'student' %}
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'allstud'%}">Ученики</a>
                 </li>
+                {% endif %}
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'allempl'%}">Все сотрудники</a>
                 </li>
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'grade'%}">Оценка</a>
                 </li>
+                {% if user_role != 'student' %}
                 <li class="nav-item mr-4">
                     <a class="nav-link p-0" href="{% url 'subj'%}">Предметы</a>
                 </li>
+                {% endif %}
+
+                <li class="nav-item mr-4">
+                    <a class="nav-link p-0" href="{% url 'logout' %}">Выход</a>
+                    </li>
+                {% else %}
+                <li class="nav-item mr-90">
+                    <a class="nav-link p-0" href="{% url 'form' %}">Вход</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
