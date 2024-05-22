@@ -73,10 +73,12 @@ def grade(request):
 def form(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
-        if form.is_valid() and auth_stud(request, Student):
-            set_session_data(request, Student)
+        if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            request.session['username'] = request.POST['username']
+            request.session['user_role'] = request.POST['role']
+            print(request.POST['role'])
             user = authenticate(request, username=username, password=password)
             if username is not None:
                 login(request, user)
@@ -183,9 +185,11 @@ def addGrade(request):
 
 def addEmpl(request):
     form = emplAdd()
-    if request.method == 'POST':
-        form = emplAdd(request.POST)
+    if request.method == "POST":
+        form = studAdd(request.POST)
         if form.is_valid():
+            user_stud = User.objects.create_user(username=request.POST['login'], password=request.POST['password'])
+            user_stud.save()
             form.save()
             return redirect('allempl')
     return render(request, 'main/addempl.html', {'form': form})

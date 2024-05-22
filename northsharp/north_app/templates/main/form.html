@@ -5,6 +5,11 @@
         <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+            <select id="role" name="role">
+            <option value="director">Директор</option>
+            <option value="teacher">Учитель</option>
+            <option value="student">Ученик</option>
+        </select>
         <button type="submit" class="btn">Войти</button>
     </form>
         {% if error %}

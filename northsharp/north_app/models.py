@@ -83,7 +83,7 @@ class Employee(models.Model):
                        message='Только трехзначное число или трехзначное число с заглавной буквой в конце')])
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default=TEACHER)
-    login = models.CharField(max_length=50)
+    username = models.CharField(max_length=50)
     password = models.CharField(max_length=128, null=False)
 
     def __str__(self):
