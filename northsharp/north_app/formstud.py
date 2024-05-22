@@ -41,6 +41,24 @@ class emplAdd(ModelForm):
                 'class': 'password',
                 'id': 'class'
             }),
+            "sex": Select(attrs={
+                'class': 'password',
+                'id': 'class'
+            }),
+            "experience": TextInput(attrs={
+                'class': 'password',
+                'id': 'class'
+            }),
+            "Class_teacher": TextInput(attrs={
+                'name': 'Class_teacher',
+                'class': 'password',
+                'id': 'class'
+            }),
+            "subject": Select(attrs={
+                'name': 'subject',
+                'class': 'password',
+                'id': 'class'
+            }),
             'birth_day': DateInput(),
             "username": TextInput(attrs={
                 'name': 'username',
