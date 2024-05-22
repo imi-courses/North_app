@@ -26,6 +26,8 @@ urlpatterns = [
 
     path('/form', views.form, name='form'),
     path('/addgrade', views.addGrade, name='addgrade'),
-    path('/addempl', views.addEmpl, name='addempl')
+    path('/addempl', views.addEmpl, name='addempl'),
+
+    path('/report', views.report, name='report'),
 ]
 

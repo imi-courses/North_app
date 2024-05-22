@@ -1,6 +1,11 @@
+import pandas as pd
 from django.shortcuts import render, redirect
 from .models import Student,Subject,Grade,Table,Employee
 from .formstud import studAdd, subjAdd, gradeAdd, emplAdd,subjEdit, subjDelete
+from django.http import HttpResponse
+from openpyxl.workbook import Workbook
+
+
 # Create your views here.
 
 
@@ -28,6 +33,7 @@ def subj(request):
     subj = Subject.objects.all()
     return render(request, "main/subj.html",{'subj': subj})
 def grade(request):
+
     grade = Grade.objects.all()
     grade.union(Student.objects.all())
     print(grade)
@@ -166,4 +172,47 @@ def deleteEmpl(request, pk):
         'form': form
     }
     return render(request, 'main/deleteEmpl.html', context)
+
+def report(request):
+    grade_data = Grade.objects.all()
+    data = {
+        'Имя': [grade.student for grade in grade_data],
+        'Предмет': [grade.subject for grade in grade_data],
+        'Класс': [grade.student.class_name for grade in grade_data],
+        'Оценка': [grade.grade for grade in grade_data]
+    }
+
+    df = pd.DataFrame(data)
+
+    file_path = 'grade.xlsx'
+    df.to_excel(file_path, index=False)
+
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = 'attachment; filename="grade.xlsx"'
+    return response
 # /
+# def report(request):
+#     if request.method == "POST":
+#         student_data = Student.objects.values('name', 'class_name')
+#         subjects_data = Subject.objects.all()
+#         grades_data = Grade.objects.select_related('student', 'subject').all()
+#
+#         students = []
+#         subjects = []
+#         grades = []
+#
+#         for student in student_data:
+#             students.append(student['name'])
+#         for subject in subjects_data:
+#             subjects.append(subject.name)
+#         for grade in grades_data:
+#             grades.append(grade.grade)
+#
+#         data = {'Student': students, 'Subject': subjects, 'Grade': grades}
+#         df = pd.DataFrame(data)
+#
+#         file_path = 'grades_data.xlsx'
+#         df.to_excel(file_path, index=False)
+#
+#         return render(request, 'repost.html', file_path)
