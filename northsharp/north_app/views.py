@@ -197,15 +197,13 @@ def addEmpl(request):
 
 def editEmpl(request, pk):
     if request.method == "POST":
-
-        form = emplAdd.objects.get(pk = pk)
+        form = Employee.objects.get(pk=pk)
         form.name = request.POST['name']
         form.position = request.POST['position']
         form.sex = request.POST['sex']
         form.experience = request.POST['experience']
         form.birth_day = request.POST['birth_day']
         form.Class_teacher = request.POST['Class_teacher']
-        form.subject = request.POST['subject']
 
         form.save()
         return redirect('allempl')
