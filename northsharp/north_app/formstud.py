@@ -30,7 +30,7 @@ class studAdd(ModelForm):
 class emplAdd(ModelForm):
     class Meta:
         model = Employee
-        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject", "role", "password"]
+        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject", "role", "login", "password"]
         widgets = {
 
             "name": TextInput(attrs={
@@ -41,7 +41,15 @@ class emplAdd(ModelForm):
                 'class': 'password',
                 'id': 'class'
             }),
-            'birth_day': DateInput()
+            'birth_day': DateInput(),
+            "login": TextInput(attrs={
+                'name': 'login',
+                'id': 'log'
+            }),
+            "password": TextInput(attrs={
+                'name': 'password',
+                'id': 'pswd'
+            }),
         }
 class gradeAdd(ModelForm):
     class Meta:

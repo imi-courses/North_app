@@ -88,7 +88,7 @@ def form(request):
     else:
         form = UserLoginForm()
     return render(request, 'main/form.html', {'form': form})
-@login_required
+
 def addstud(request):
     if(type==1):
         return redirect('grade')
@@ -133,19 +133,20 @@ def deletestud(request, pk):
 # /
 
 
-@login_required
 def addsubj(request):
     if request.method == "POST":
         form = subjAdd(request.POST)
         if form.is_valid():
+            user_stud = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+            user_stud.save()
             form.save()
-            return redirect('subj')
+            return redirect('main')
     form = subjAdd
     context = {
         'form': form
     }
     return render(request, 'main/addsubj.html', context)
-@login_required
+
 # /Редактирование и удаление
 def editsubj(request, pk):
     if request.method == "POST":
@@ -158,7 +159,7 @@ def editsubj(request, pk):
         'form': form
     }
     return render(request, 'main/editsubj.html', context)
-@login_required
+
 def deletesubj(request, pk):
     if request.method == "POST":
         Subject.objects.filter(pk = pk).delete()
@@ -170,7 +171,7 @@ def deletesubj(request, pk):
     return render(request, 'main/deletesubj.html', context)
 # /
 
-@login_required
+
 def addGrade(request):
     form = gradeAdd()
     if request.method == 'POST':
@@ -179,7 +180,7 @@ def addGrade(request):
             form.save()
             return redirect('grade')
     return render(request, 'main/addgrade.html', {'form': form})
-@login_required
+
 def addEmpl(request):
     form = emplAdd()
     if request.method == 'POST':
@@ -189,7 +190,7 @@ def addEmpl(request):
             return redirect('allempl')
     return render(request, 'main/addempl.html', {'form': form})
 # /Редактирование и удаление
-@login_required
+
 def editEmpl(request, pk):
     if request.method == "POST":
 
@@ -209,7 +210,7 @@ def editEmpl(request, pk):
         'form': form
     }
     return render(request, 'main/editEmpl.html', context)
-@login_required
+
 def deleteEmpl(request, pk):
     if request.method == "POST":
         Employee.objects.filter(pk = pk).delete()
