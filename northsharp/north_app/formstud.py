@@ -1,13 +1,14 @@
 from .models import Student, Subject, Grade, Employee
-from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput
+from django.forms import ModelForm, TextInput, NumberInput, Select, DateInput, Form
 
 
 class studAdd(ModelForm):
     class Meta:
         model = Student
-        fields = ["name", "class_name"]
+        fields = ["name", "class_name","username", "password"]
         widgets = {
             "name": TextInput(attrs={
+                'name': 'username',
                 'class': 'forms',
                 'id': 'name'
             }),
@@ -15,15 +16,40 @@ class studAdd(ModelForm):
                 'class': 'forms',
                 'id': 'class'
             }),
+            "username": TextInput(attrs={
+                'class': 'forms',
+                'id': 'log'
+            }),
+            "password": TextInput(attrs={
+                'name': 'password',
+                'class': 'forms',
+                'id': 'pswd'
+            }),
         }
-
 
 class emplAdd(ModelForm):
     class Meta:
         model = Employee
-        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject"]
+        fields = ["name", "position", "sex", "experience", "birth_day", "Class_teacher", "subject", "role", "username", "password"]
         widgets = {
-            'birth_day': DateInput()
+
+            "name": TextInput(attrs={
+                'class': 'username',
+                'id': 'name'
+            }),
+            "position": Select(attrs={
+                'class': 'password',
+                'id': 'class'
+            }),
+            'birth_day': DateInput(),
+            "username": TextInput(attrs={
+                'name': 'username',
+                'id': 'log'
+            }),
+            "password": TextInput(attrs={
+                'name': 'password',
+                'id': 'pswd'
+            }),
         }
 class gradeAdd(ModelForm):
     class Meta:

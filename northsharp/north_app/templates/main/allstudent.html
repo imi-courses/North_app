@@ -15,5 +15,7 @@
     </div>
 
     {% endfor %}
+{% if user_role != 'student' %}
 <a class="btn btn-primary" href="{% url 'addstud'%}">Добавить</a>
+{% endif %}
 {% endblock %}
